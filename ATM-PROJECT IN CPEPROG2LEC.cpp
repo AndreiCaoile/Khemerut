@@ -1,4 +1,5 @@
 #include<iostream>
+#include<cstdlib>
 using namespace std;
 
 struct new_identity{
@@ -25,25 +26,28 @@ int main()
 	int a2 = 203450;
 	int a3 = 346535;
 
-	int x,i,cancel,trans;
+	int cancel;
 	char yn;
 	identity atm;
 	cout<<"----WELCOME----"<<endl;
 	cout<<"Please enter your pin: ";
-	cin>>atm.pin;
+	pin:cin>>atm.pin;
 	if((atm.pin)==1290)//code
 	{
-		account:cout<<"Welcome Caoile"<<endl;
+		account:
+		system("cls");
+		cout<<"Welcome Caoile"<<endl;
 		cout<<"1.	Balance Inquiry"<<endl;
 		cout<<"2.	Withdraw Cash"<<endl;
 		cout<<"3.	Deposit Cash"<<endl;
 		cout<<"4.	Quit"<<endl;
 		cout<<"Enter transaction: ";
 		cin>>atm.choose;
-		switch(atm.choose)
-		{
-			if(atm.choose=='1','2','3','4')
+		if((atm.choose)=='1','2','3','4')
+		{		
+			switch(atm.choose)
 			{
+			
 				case 1:
 				{
 					cout<<endl;
@@ -56,7 +60,7 @@ int main()
 						goto account;//pupunta siya sa welcome caoile 
 					}else(cancel!=1);
 					{			
-						cout<<"Invalid ";
+						again:cout<<"Invalid ";
 						cout<<"Try Again [Y]";
 						cin>>yn;
 						if(yn==1);
@@ -65,7 +69,7 @@ int main()
 						}
 					}
 					break;
-			}
+				}
 			case 2:
 				{
 					cout<<endl;
@@ -86,6 +90,7 @@ int main()
 						cout<<"Your current balance is "<<a1;
 					}else
 					{
+						cin.ignore();
 						cout<<"Try Again ";
 						goto withdraw;
 					}
@@ -108,50 +113,48 @@ int main()
 						break;
 				}
 			case 3:
-			{
-				cout<<"Deposit Cash"<<endl;
-				cout<<"Enter the amount to deposit: ";
-				cin>>atm.deposit;
-				a1=a1+atm.deposit;
-				cout<<"Your new balance is: "<<a1;
-				cout<<endl;
-				cout<<"Press 1 to go back ";
-				cin>>cancel;
-				if(cancel==1)
 				{
-					goto account;//pupunta siya sa welcome caoile 
-				}else(cancel!=1);
-				{		
-				
-					cout<<"Invalid ";
-					cout<<"Try Again: ";
-					cin>>yn;
-					if(yn==1);
+					cout<<"Deposit Cash"<<endl;
+					cout<<"Enter the amount to deposit: ";
+					cin>>atm.deposit;
+					a1=a1+atm.deposit;
+					cout<<"Your new balance is: "<<a1;
+					cout<<endl;
+					cout<<"Press 1 to go back ";
+					cin>>cancel;
+					if(cancel==1)
 					{
-						goto account;//pupunta sya WELCOME ACCOUNT
-					}
+						goto account;//pupunta siya sa welcome caoile 
+					}else(cancel!=1);
+						{		
+							cout<<"Invalid ";
+							cout<<"Try Again: ";
+							cin>>yn;
+							if(yn==1);
+							{
+								goto account;//pupunta sya WELCOME ACCOUNT
+							}
+						}
+					break;
 				}
-				break;
-			}
 		case 4:
 			{
 				system("pause>0");
 				break;
 			}
-			}else //ayaw siya mag invalid huhuh
+			}
+		}else //ayaw siya mag invalid huhuh
 				{
 					cout<<"Invalid";
 					cout<<"Enter Again";
 					cin>>atm.choose;
 					goto account;
 				}
-
-		}
-		}
-		// 2
-		if((atm.pin)==1639) //code
+	}else if((atm.pin)==1639) //code
 		{
-			account2:cout<<"Welcome Salazar"<<endl;
+			account2:
+			system("cls");
+			cout<<"Welcome Salazar"<<endl;
 			cout<<"1.	Balance Inquiry"<<endl;
 			cout<<"2.	Withdraw Cash"<<endl;
 			cout<<"3.	Deposit Cash"<<endl;
@@ -265,11 +268,11 @@ int main()
 				}
 			}
 				
-		}
-		//3
-		if((atm.pin)==9720)
+		}else if((atm.pin)==9720)
 		{
-			account3:cout<<"Welcome Revellame"<<endl;
+			account3:
+			system("cls");
+			cout<<"Welcome Revellame"<<endl;
 			cout<<"1.	Balance Inquiry"<<endl;
 			cout<<"2.	Withdraw Cash"<<endl;
 			cout<<"3.	Deposit Cash"<<endl;
@@ -383,9 +386,12 @@ int main()
 					goto account;
 				}
 			}		
+		}else// nagloloop siya pag letter ang ininput
+		{
+			cout<<"Invalid\n";
+			cout<<"Please enter your pin: ";
+			goto pin; //pointer papuntang pin
 		}
-	
+
 
 }
-
-
