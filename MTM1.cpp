@@ -114,7 +114,6 @@ void deposit(){ //code for deposit
 void balance(){ //code for balance account
 	system("cls"); //this erase the previous output
 	title();
-	cout<<prof.Cdetails.cnum;
 	cout<<"Your Balance is: "<<prof.Balance<<endl;
 	system("Pause"); //this will prompt the user
 }
