@@ -4,6 +4,7 @@
 #include<cmath>
 #include<string.h>
 #include<windows.h>
+#include<fstream>
 using namespace std;
 int ans;
 
@@ -20,14 +21,11 @@ struct Profile{ //file handling
 	char uname; //user name
 	}Name;
 	struct {
-	char cnum[11];
 	char pin[4];
 	}	Cdetails;
 	float Balance;
 };
-struct code{
-	char inpin[4];	
-};
+
 
 
 
@@ -64,7 +62,7 @@ void checker(){ //code for the user
 	int i,b;
 	
 	char uname[20];
-	code pin[4];
+	char inpin[4];
 	title();
 	cout<<"\n\n\n";
 	cout<<"Welcome"<<endl;
@@ -76,18 +74,18 @@ void checker(){ //code for the user
 	
 	cout<<"Enter Your Pin: "; 
 	for(i=0;i<4;i++){ //the output of the pin is asterisk
-		pin[i].inpin[i]=getch();
+		inpin[i]=getch();
 		cout<<"*";
+		Beep(700,200);
 	}
 	cout<<endl;
-//ayaw siyaa uhuhu
-		if(pin[i].inpin==9752){ //this will compare the inputed pin to another conformation pin 
-		cout<<"Congrats!"
-		<<endl;
+		if(strcmp(prof.Cdetails.pin,inpin)==0){ //this will compare the inputed pin to another conformation pin 
+		cout<<"Pin Successfully Entered..."<<endl;
 		
 	}
 	else{
 		cout<<"Pin does not match..."<<endl;
+		cin.ignore();
 		exit(0);
 	}
 
